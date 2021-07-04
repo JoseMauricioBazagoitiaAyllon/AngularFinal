@@ -12,6 +12,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { MatTableModule } from '@angular/material/table';
 import { AdminInterceptor } from './shared/interceptors/admi-interceptor';
 import { ModalComponent } from './pages/empleados/components/modal/modal.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { ModalComponent } from './pages/empleados/components/modal/modal.compone
     MaterialModule,
     SidebarModule,
     HttpClientModule
-    ,MatTableModule
+    ,MatTableModule,
+    ReactiveFormsModule
   ],
   providers: [
     {provide:HTTP_INTERCEPTORS,useClass:AdminInterceptor, multi:true}

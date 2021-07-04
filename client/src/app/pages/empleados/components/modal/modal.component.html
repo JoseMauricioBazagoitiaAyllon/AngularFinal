@@ -1,24 +1,37 @@
+{{data.Emp | json}}
 <h2 mat-dialog-title>{{ data?.title }}</h2>
 <mat-dialog-content>
   <div class="modal-form">
-    <form >
+    <form [formGroup] = "AdmiForm" >
         <mat-form-field class="full-width-input">
-            <input matInput placeholder="Nombre_Emp" required>
+            <input 
+            formControlName="Nombre_Emp"
+            matInput placeholder="Nombre_Emp" required>
         </mat-form-field>
         <mat-form-field class="full-width-input">
-            <input matInput placeholder="Celular" required>
+            <input 
+            formControlName="Celular"
+            matInput placeholder="Celular" required>
         </mat-form-field>
         <mat-form-field class="full-width-input">
-            <input matInput placeholder="Direccion" required>
+            <input 
+            formControlName="Direccion"
+            matInput placeholder="Direccion" required>
         </mat-form-field>
         <mat-form-field class="full-width-input">
-            <input matInput placeholder="Cod_Dep" required>
+            <input 
+            formControlName="Cod_Dep"
+            matInput placeholder="Cod_Dep" required>
         </mat-form-field>
         <mat-form-field class="full-width-input">
-            <input matInput placeholder="Cod_Rol" required>
+            <input 
+            formControlName="Cod_Rol"
+            matInput placeholder="Cod_Rol" required>
         </mat-form-field>
         <mat-form-field class="full-width-input">
-            <input matInput placeholder="Cod_Sueldo" required>
+            <input 
+            formControlName="Cod_Sueldo"
+            matInput placeholder="Cod_Sueldo" required>
         </mat-form-field>
     </form>
   </div>
