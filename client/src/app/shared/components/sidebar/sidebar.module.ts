@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SidebarComponent } from './sidebar.component';
 import { MaterialModule } from 'src/app/material.model';
+import { RouterModule } from '@angular/router';
+import { UtilsService } from '../../services/util.service';
 
 
 @NgModule({
@@ -9,8 +11,9 @@ import { MaterialModule } from 'src/app/material.model';
     SidebarComponent
   ],
   imports: [
-    CommonModule, MaterialModule
+    CommonModule, MaterialModule, RouterModule
   ],
-  exports:[SidebarComponent]
+  exports:[SidebarComponent],
+  providers:[UtilsService]
 })
 export class SidebarModule { }

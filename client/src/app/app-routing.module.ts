@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { CheckLoginGuard } from './shared/guards/check-login.guard';
 
 const routes: Routes = [
-  { path: '', loadChildren: () => 
+  { path: 'home', loadChildren: () => 
     import('./pages/home/home.module').then(m => m.HomeModule) 
   },
   { path: 'notFound', loadChildren: () => 
@@ -12,7 +12,9 @@ const routes: Routes = [
     import('./pages/admi/admi.module').then(m => m.AdmiModule) },
   { path: 'login', loadChildren: () => 
     import('./pages/auth/login/login.module').then(m => m.LoginModule),canActivate:[CheckLoginGuard],   
-  }];
+  },
+  { path: '', loadChildren: () => import('./pages/inicio/inicio.module').then(m => m.InicioModule) },
+  { path: 'empleados', loadChildren: () => import('./pages/empleados/empleados.module').then(m => m.EmpleadosModule) }];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

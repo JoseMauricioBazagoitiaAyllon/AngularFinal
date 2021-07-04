@@ -1,0 +1,44 @@
+<table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+
+  <!-- Position Column -->
+  <ng-container matColumnDef="Cod_Emp">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Codigo del Empleado </th>
+    <td mat-cell *matCellDef="let element"> {{element.Cod_Emp}} </td>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="Nombre_Emp">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Nombre del empleado </th>
+    <td mat-cell *matCellDef="let element"> {{element.Nombre_Emp}} </td>
+  </ng-container>
+
+  <!-- Weight Column -->
+  <ng-container matColumnDef="Celular">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Celular </th>
+    <td mat-cell *matCellDef="let element"> {{element.Celular}} </td>
+  </ng-container>
+
+  <!-- Symbol Column -->
+  <ng-container matColumnDef="Direccion">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Direccion </th>
+    <td mat-cell *matCellDef="let element"> {{element.Direccion}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="Cod_Dep">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Codigo de Departamento </th>
+    <td mat-cell *matCellDef="let element"> {{element.Cod_Dep}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="Cod_Rol">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Codigo de Rol </th>
+    <td mat-cell *matCellDef="let element"> {{element.Cod_Rol}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="Cod_Sueldo">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Codigo de Sueldo </th>
+    <td mat-cell *matCellDef="let element"> {{element.Cod_Sueldo}} </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

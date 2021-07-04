@@ -1,23 +1,26 @@
 <mat-toolbar>
-    <ng-container *ngIf= "!isAdmin; else viewAdmin">
-        <span class ="title">Salarios</span>
-        <span class="spacer"></span>
-        <div>
-            <a *ngIf="!isLogged ; else viewLogout" 
-            mat-button routerLink = "/login">Login</a>
-            
-            <!--<a mat-button routerLink = "/admi">Admin1</a>-->
-        </div>
+    <ng-container *ngIf="isLogged" ><!---->
+        <mat-nav-list>
+            <mat-list-item mat-icon-button (click)="onToggleSidenav()">
+                <mat-icon>menu</mat-icon>
+            </mat-list-item>
+        </mat-nav-list>
     </ng-container>
+    <span class ="title">Salarios</span>
+    <span class="spacer"></span>
+    <div>
+        <a *ngIf="!isLogged ; else viewLogout" 
+        mat-button routerLink = "/login">Login</a>        
+            <!--<a mat-button routerLink = "/admi">Admin1</a>-->
+    </div>
+    
 </mat-toolbar>    
 <ng-template #viewLogout>
     <a mat-button (click)= "onLogout()">Logout</a>
 </ng-template>
 
 <ng-template #viewAdmin>
-    <button mat-icon-button (click)="onToggleSidenav()">
-        <mat-icon>menu</mat-icon>
-    </button>
+    
     <span class="spacer"> </span>
 
 </ng-template>

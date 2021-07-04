@@ -8,7 +8,9 @@ import { HeaderComponent } from './shared/components/header/header.component';
 import { FooderComponent } from './shared/components/fooder/fooder.component';
 import {MaterialModule} from './material.model';
 import { SidebarModule } from './shared/components/sidebar/sidebar.module'
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { MatTableModule } from '@angular/material/table';
+import { AdminInterceptor } from './shared/interceptors/admi-interceptor';
 
 @NgModule({
   declarations: [
@@ -23,8 +25,11 @@ import { HttpClientModule } from '@angular/common/http';
     MaterialModule,
     SidebarModule,
     HttpClientModule
+    ,MatTableModule
   ],
-  providers: [],
+  providers: [
+    {provide:HTTP_INTERCEPTORS,useClass:AdminInterceptor, multi:true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

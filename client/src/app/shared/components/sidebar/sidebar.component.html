@@ -1,5 +1,40 @@
-<mat-nav-list>
-    <a mat-nav-item>
-        
-    </a>
+<mat-nav-list >
+    <mat-list-item mat-icon-button (click)="refresh()">
+        <mat-icon>update</mat-icon>
+    </mat-list-item>
+    <mat-list role="list" *ngIf="Rol =='Admi'">
+        <mat-list-item role="listitem"  >Home</mat-list-item>
+        <mat-list-item role="listitem" routerLink="/empleados">Empleados</mat-list-item>
+        <mat-list-item role="listitem">Sueldos</mat-list-item>
+        <mat-list-item role="listitem">Departamentos</mat-list-item>
+        <mat-list-item role="listitem">Descuentos</mat-list-item>
+        <mat-list-item role="listitem">Impuestos</mat-list-item>
+        <mat-list-item role="listitem">Roles</mat-list-item>
+        <mat-list-item role="listitem">Administradores</mat-list-item>
+        <mat-list-item role="listitem">Facturas</mat-list-item>
+        <mat-list-item (click)="onExit()">
+            <mat-icon>exit_to_app</mat-icon>
+            <span class="nav-link">Exit</span>
+        </mat-list-item>
+    </mat-list>
+    <mat-list role="list" *ngIf="Rol =='Empleado'">
+        <mat-list-item role="listitem" >Home</mat-list-item>
+        <mat-list-item role="listitem">Actividad</mat-list-item>
+        <mat-list-item role="listitem">descuentos</mat-list-item>
+        <mat-list-item role="listitem">Impuestos</mat-list-item>
+        <mat-list-item role="listitem">Sueldo total a cobrar</mat-list-item>
+        <mat-list-item role="listitem">Facturas presentadas</mat-list-item>
+        <mat-list-item (click)="onExit()">
+            <mat-icon>exit_to_app</mat-icon>
+            <span class="nav-link">Exit</span>
+        </mat-list-item>
+    </mat-list>
+    <mat-list role="list" *ngIf="Rol =='PE'">
+        <mat-list-item role="listitem">Info</mat-list-item>
+        <mat-list-item (click)="onExit()">
+            <mat-icon>exit_to_app</mat-icon>
+            <span class="nav-link">Exit</span>
+        </mat-list-item>
+    </mat-list>
+    
 </mat-nav-list>

@@ -1,6 +1,8 @@
 import { Component, OnInit , Output, EventEmitter, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { AuthService } from 'src/app/pages/auth/auth.service';
+import { MaterialModule } from 'src/app/material.model';
+import { UtilsService } from '../../services/util.service';
 
 @Component({
   selector: 'app-header',
@@ -10,18 +12,14 @@ import { AuthService } from 'src/app/pages/auth/auth.service';
 export class HeaderComponent implements OnInit, OnDestroy {
   isAdmin = false;
   isLogged = false;
-  private subscription: Subscription = new Subscription;
-
+  private subscription: Subscription = new Subscription();
   @Output() toggleSidenav = new EventEmitter<void>();
-  constructor(private authSvc:AuthService) { }
-  
-
+  constructor(private authSvc:AuthService , private ustilsSvs:UtilsService) { }
   ngOnInit(): void {
     this.subscription.add(
     this.authSvc.isLogged.subscribe((res) => (this.isLogged = res))
     );
   }
-
   ngOnDestroy(): void {
     this.subscription.unsubscribe();
   }
@@ -31,5 +29,6 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
   onLogout(){
     this.authSvc.logout();
+    this.ustilsSvs.openSidebar(false);
   }
 }

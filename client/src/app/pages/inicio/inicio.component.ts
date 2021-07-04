@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth/auth.service';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  selector: 'app-inicio',
+  templateUrl: './inicio.component.html',
+  styleUrls: ['./inicio.component.scss']
 })
-export class HomeComponent implements OnInit {
+export class InicioComponent implements OnInit {
   rol = "";
   showFiller = false;
   constructor(public authSvc: AuthService) { }
@@ -16,12 +16,9 @@ export class HomeComponent implements OnInit {
   changeRol(nombre : string){
     this.rol = nombre;
     this.SaveRol();
+    window.location.reload();
   }
   private SaveRol(){
     localStorage.setItem('Rol', this.rol);
   } 
-
-}
-export class SidenavAutosizeExample {
-  
 }

@@ -14,7 +14,8 @@ import {catchError , map} from 'rxjs/operators'
 export class AuthService {
   private loggedIn = new BehaviorSubject<boolean>(false);
   private role = new BehaviorSubject<Roles>(null);
-
+  private userToken =new BehaviorSubject<any>(null);
+  
   constructor(private http:HttpClient, private router:Router) { 
     this.CheckToken();
   }
@@ -22,17 +23,27 @@ export class AuthService {
   get isLogged():Observable<boolean>{
     return this.loggedIn.asObservable();
   }
-  
-  login(authData: Admi): Observable<AdmiResponse | void> {
+  get isAdmin$():Observable<string | null>{
+    return this.role.asObservable();
+  }
+
+  get userTokenValue(): string{
+    return this.userToken.getValue();
+  }
+
+  login(authData: Admi): Observable<AdmiResponse> {
+    localStorage.setItem('token', " ");
     return this.http
       .post<AdmiResponse>(`/api/login`, authData)
       .pipe(
-        map((res: AdmiResponse) => {
-          console.log("resp->", res);
-          this.saveToken(res.token);
-          //this.loggedIn.next(true);
+        map((AdmiResponse) => {
+          console.log("resp->", AdmiResponse);
+          this.saveToken(AdmiResponse.token);
           this.loggedIn.next(true);
-          return res;
+          //this.role.next(res.role);
+          this.userToken.next(AdmiResponse.token);
+          console.log(AdmiResponse.token);
+          return AdmiResponse;
           //this.user.next(user);
           //return user;
         }),
@@ -41,8 +52,11 @@ export class AuthService {
   }
   logout():void{
     localStorage.removeItem('token');
+    localStorage.removeItem('Rol');
     // set UserIsLogged = false
     this.loggedIn.next(false);
+    //this.role.next(null);
+    this.userToken.next(' ');
     this.router.navigate(['login'])
   }
   private CheckToken():void{
@@ -56,6 +70,8 @@ export class AuthService {
       this.logout();
     }else{
       this.loggedIn.next(true);
+      //this.role.next(admi.role);
+      this.userToken.next(admiToken.userToken); 
     }
     //set AdmiIsLogged = isExpired;
   }

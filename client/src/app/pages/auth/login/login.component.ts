@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import {AuthService} from '../auth.service'
-import{FormBuilder} from '@angular/forms'
+import{FormBuilder , Validators} from '@angular/forms'
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { MaterialModule } from 'src/app/material.model';
@@ -11,15 +11,17 @@ import { MaterialModule } from 'src/app/material.model';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit, OnDestroy{
-  private subscription: Subscription = new Subscription;
+  hide = true;
+  private subscription: Subscription = new Subscription();
   loginForm = this.fb.group({
-    User_Name: [''],
-    User_Email: [''],
-    User_password: [''], 
+    User_Name: ['',Validators.required],
+    User_Email: ['',Validators.required],
+    User_password: ['',Validators.required], 
   });
   roles: string[] =["Administrador", "Empleado", "Persona Particular"];
   opcionSeleccionado: any  = '0';
   verSeleccion: any        = '';
+
   constructor(private authSvc: AuthService, private fb:FormBuilder, private router:Router) { }
   ngOnDestroy(): void {
     this.subscription.unsubscribe();
@@ -29,6 +31,9 @@ export class LoginComponent implements OnInit, OnDestroy{
     
   }
   onLogin():void{
+    if(this.loginForm.invalid){
+      return;
+    }
     const fromValue = this.loginForm.value;
     console.log(fromValue);
     this.subscription.add(
