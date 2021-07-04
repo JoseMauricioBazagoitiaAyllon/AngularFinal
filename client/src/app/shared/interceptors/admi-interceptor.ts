@@ -11,7 +11,7 @@ export class AdminInterceptor implements HttpInterceptor{
     intercept(req:HttpRequest<any>,next:HttpHandler): Observable<any>{
         //if (req.url.includes('admin')) {
             const authToken: any = localStorage.getItem('token');
-            debugger;
+            //debugger;
             const authReq = req.clone({
                 setHeaders:{
                     Authorization:authToken,

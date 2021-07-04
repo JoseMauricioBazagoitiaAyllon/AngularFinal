@@ -11,12 +11,14 @@ import { SidebarModule } from './shared/components/sidebar/sidebar.module'
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { MatTableModule } from '@angular/material/table';
 import { AdminInterceptor } from './shared/interceptors/admi-interceptor';
+import { ModalComponent } from './pages/empleados/components/modal/modal.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    FooderComponent
+    FooderComponent,
+    ModalComponent
   ],
   imports: [
     BrowserModule,

@@ -14,6 +14,6 @@ export interface Emp{
     Cod_Rol?: string;
     Cod_Sueldo?: string;
 }
-export interface AdmiResponse extends Admi{
+export interface AdmiResponse  extends Admi{
     token : string;
 }
