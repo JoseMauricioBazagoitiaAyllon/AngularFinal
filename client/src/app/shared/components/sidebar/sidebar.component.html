@@ -3,14 +3,14 @@
         <mat-icon>update</mat-icon>
     </mat-list-item>
     <mat-list role="list" *ngIf="Rol =='Admi'">
-        <mat-list-item role="listitem"  >Home</mat-list-item>
+        <mat-list-item role="listitem" routerLink="" >Home</mat-list-item>
         <mat-list-item role="listitem" routerLink="/empleados">Empleados</mat-list-item>
-        <mat-list-item role="listitem">Sueldos</mat-list-item>
-        <mat-list-item role="listitem">Departamentos</mat-list-item>
-        <mat-list-item role="listitem">Descuentos</mat-list-item>
-        <mat-list-item role="listitem">Impuestos</mat-list-item>
-        <mat-list-item role="listitem">Roles</mat-list-item>
-        <mat-list-item role="listitem">Administradores</mat-list-item>
+        <mat-list-item role="listitem" routerLink="/sueldos">Sueldos</mat-list-item>
+        <mat-list-item role="listitem" routerLink="/departamentos">Departamentos </mat-list-item>
+        <mat-list-item role="listitem" routerLink="/descuentos">Descuentos</mat-list-item>
+        <mat-list-item role="listitem"routerLink="/impuestos">Impuestos</mat-list-item>
+        <mat-list-item role="listitem" routerLink="/roles">Roles</mat-list-item>
+        <mat-list-item role="listitem" routerLink="/admin" >Cuentas Web</mat-list-item>
         <mat-list-item role="listitem">Facturas</mat-list-item>
         <mat-list-item (click)="onExit()">
             <mat-icon>exit_to_app</mat-icon>

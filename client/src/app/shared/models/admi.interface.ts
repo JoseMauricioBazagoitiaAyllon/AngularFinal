@@ -16,4 +16,37 @@ export interface Emp{
 }
 export interface AdmiResponse  extends Admi{
     token : string;
+    id : any;
+    Rol : string;
+}
+export interface Sueldo{
+    Cod_Sueldo?: number;
+    Cant_Sueldo_Dia?: number;
+    Cant_Sueldo_Horas_Extras?: number;
+}
+
+export interface Dep{
+    Cod_Dep?: number;
+    Nombre_Dep?: string;
+}
+export interface Des{
+    Cod_Descuento?: number;
+    Nombre_Des?: string;
+    Porcentaje_Des?: number;
+}
+export interface Imp{
+    Cod_Imp?: number;
+    Nombre_Imp?: string;
+    Porcentaje_Imp?: number;
+}
+export interface Rol{
+    Cod_Rol?: number;
+    Nombre_Rol?: string;
+}
+export interface Admi{
+    Cod_Admi?: number;
+    user_Name?: string;
+    user_Email?: string;
+    user_password?: string;
+    Cod_Emp?: number;
 }

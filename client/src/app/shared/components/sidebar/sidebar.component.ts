@@ -11,14 +11,16 @@ export class SidebarComponent implements OnInit {
 
   constructor(private authSvs:AuthService , private ustilsSvs:UtilsService) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+     
+  }
   onExit(): void{
     this.authSvs.logout();
     this.ustilsSvs.openSidebar(false);
   }
-
-
-
   Rol = localStorage.getItem ( 'Rol' );
   refresh(): void { window.location.reload(); }
+
+
+  
 }

@@ -1,0 +1,46 @@
+<div class="table-button-row">
+    <button
+    (click)="onOpenModal()"
+      mat-flat-button
+      color="primary"
+      class="btn-new">
+      Agregar Nuevo Impuesto
+    </button>
+  </div>
+  <!--"
+      -->
+  <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+  
+    <!-- Position Column -->
+    <ng-container matColumnDef="Cod_Imp">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Codigo de Impuesto </th>
+      <td mat-cell *matCellDef="let element"> {{element.Cod_Imp}} </td>
+    </ng-container>
+  
+    <!-- Name Column -->
+    <ng-container matColumnDef="Nombre_Imp">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Nombre de Impuesto </th>
+      <td mat-cell *matCellDef="let element"> {{element.Nombre_Imp}} </td>
+    </ng-container>
+  
+    <!-- Weight Column -->
+    <ng-container matColumnDef="Porcentaje_Imp">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Porcentaje de Impuesto </th>
+      <td mat-cell *matCellDef="let element"> {{element.Porcentaje_Imp}} </td>
+    </ng-container>
+
+    
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Acciones </th>
+      <td mat-cell *matCellDef="let element">
+        <div class="table-button-row">
+          <button mat-flat-button color = "accent" (click)="onOpenModal(element)" class="btn-new">Editar</button>
+          <button mat-flat-button color = "warn" (click)="onDelete(element.Cod_Imp)">Eliminar</button>
+        </div>
+      </td>
+    </ng-container>
+    
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>

@@ -13,13 +13,25 @@ import { MatTableModule } from '@angular/material/table';
 import { AdminInterceptor } from './shared/interceptors/admi-interceptor';
 import { ModalComponent } from './pages/empleados/components/modal/modal.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ModalSueldoComponent } from './pages/accesAdmi/components/modal-sueldo/modal-sueldo.component';
+import { ModalDepComponent } from './pages/accesAdmi/components/modal-dep/modal-dep.component';
+import { ModalDesComponent } from './pages/accesAdmi/components/modal-des/modal-des.component';
+import { ModalImpComponent } from './pages/accesAdmi/components/modal-imp/modal-imp.component';
+import { ModalRolComponent } from './pages/accesAdmi/components/modal-rol/modal-rol.component';
+import { ModalAdminComponent } from './pages/accesAdmi/components/modal-admin/modal-admin.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FooderComponent,
-    ModalComponent
+    ModalComponent,
+    ModalSueldoComponent,
+    ModalDepComponent,
+    ModalDesComponent,
+    ModalImpComponent,
+    ModalRolComponent,
+    ModalAdminComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +41,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     SidebarModule,
     HttpClientModule
     ,MatTableModule,
-    ReactiveFormsModule 
+    ReactiveFormsModule,
   ],
   providers: [
     {provide:HTTP_INTERCEPTORS,useClass:AdminInterceptor, multi:true}

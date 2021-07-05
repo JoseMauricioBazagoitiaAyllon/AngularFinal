@@ -1,0 +1,41 @@
+<div class="table-button-row">
+    <button
+    (click)="onOpenModal()"
+      mat-flat-button
+      color="primary"
+      class="btn-new">
+      Agregar Nuevo Departamento
+    </button>
+  </div>
+  <!--"
+      -->
+  <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+  
+    <!-- Position Column -->
+    <ng-container matColumnDef="Cod_Dep">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Codigo de Departamento </th>
+      <td mat-cell *matCellDef="let element"> {{element.Cod_Dep}} </td>
+    </ng-container>
+  
+    <!-- Name Column -->
+    <ng-container matColumnDef="Nombre_Dep">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Nombre del Departamento </th>
+      <td mat-cell *matCellDef="let element"> {{element.Nombre_Dep}} </td>
+    </ng-container>
+  
+  
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Acciones </th>
+      <td mat-cell *matCellDef="let element">
+        <div class="table-button-row">
+          <button mat-flat-button color = "accent" (click)="onOpenModal(element)" class="btn-new">Editar</button>
+          <button mat-flat-button color = "warn" (click)="onDelete(element.Cod_Dep)">Eliminar</button>
+        </div>
+      </td>
+    </ng-container>
+    
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  

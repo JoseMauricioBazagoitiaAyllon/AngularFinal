@@ -1,0 +1,28 @@
+<!--{{data.Emp | json}}-->
+<h2 mat-dialog-title>{{ data?.title }}</h2>
+<mat-dialog-content>
+  <div class="modal-form">
+    <form [formGroup] = "RolForm" >
+        <mat-form-field class="full-width-input">
+            <input 
+            formControlName="Nombre_Rol"
+            matInput placeholder="Nombre_Rol" required>
+        </mat-form-field>
+    </form>
+  </div>
+</mat-dialog-content> 
+<!--{{AdmiForm.status}}-->
+<mat-dialog-actions align  ="end">
+  <button mat-button mat-dialog-close>Cancelar</button>
+  <button
+    mat-raised-button
+    [mat-dialog-close]="true"
+    color="primary"
+    (click)="onSave()"
+    ckdFocusInitial
+    
+  >
+  <!--[disabled]="!userForm.baseForm.valid"-->
+    Save
+  </button>
+</mat-dialog-actions>

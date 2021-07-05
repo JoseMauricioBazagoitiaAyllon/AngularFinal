@@ -1,0 +1,43 @@
+<!--{{data.Emp | json}}-->
+<h2 mat-dialog-title>{{ data?.title }}</h2>
+<mat-dialog-content>
+  <div class="modal-form">
+    <form [formGroup] = "AdmiForm" >
+        <mat-form-field class="full-width-input">
+            <input 
+            formControlName="User_Name"
+            matInput placeholder="User_Name" required>
+        </mat-form-field>
+        <mat-form-field class="full-width-input">
+            <input 
+            formControlName="User_Email"
+            matInput placeholder="User_Email" required>
+        </mat-form-field>
+        <mat-form-field class="full-width-input">
+            <input 
+            formControlName="User_password"
+            matInput placeholder="User_password" type="password" required>
+        </mat-form-field>
+        <mat-form-field class="full-width-input">
+            <input 
+            formControlName="Cod_Emp"
+            matInput placeholder="Cod_Emp" required>
+        </mat-form-field>
+    </form>
+  </div>
+</mat-dialog-content> 
+<!--{{AdmiForm.status}}-->
+<mat-dialog-actions align  ="end">
+  <button mat-button mat-dialog-close>Cancelar</button>
+  <button
+    mat-raised-button
+    [mat-dialog-close]="true"
+    color="primary"
+    (click)="onSave()"
+    ckdFocusInitial
+    
+  >
+  <!--[disabled]="!userForm.baseForm.valid"-->
+    Save
+  </button>
+</mat-dialog-actions>

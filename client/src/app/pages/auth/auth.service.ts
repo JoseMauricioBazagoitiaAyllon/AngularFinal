@@ -38,7 +38,7 @@ export class AuthService {
       .pipe(
         map((AdmiResponse) => {
           console.log("resp->", AdmiResponse);
-          this.saveToken(AdmiResponse.token);
+          this.saveToken(AdmiResponse.token, AdmiResponse.id,AdmiResponse.Rol);
           this.loggedIn.next(true);
           //this.role.next(res.role);
           this.userToken.next(AdmiResponse.token);
@@ -53,6 +53,7 @@ export class AuthService {
   logout():void{
     localStorage.removeItem('token');
     localStorage.removeItem('Rol');
+    localStorage.removeItem('id');
     // set UserIsLogged = false
     this.loggedIn.next(false);
     //this.role.next(null);
@@ -75,8 +76,10 @@ export class AuthService {
     }
     //set AdmiIsLogged = isExpired;
   }
-  private saveToken(token : string):void{
+  private saveToken(token : string, id : any,Rol :string):void{
     localStorage.setItem('token', token);
+    localStorage.setItem('id', id);
+    localStorage.setItem('Rol', Rol);
   }
   private handlerError(err:any): Observable<never> {
     let errorMessage = 'An errror occured retrienving data';
@@ -85,5 +88,13 @@ export class AuthService {
     }
     window.alert(errorMessage);
     return throwError(errorMessage);
+  }/*
+  changeRol(nombre : string){
+    this.rol = nombre;
+    this.SaveRol();
+    window.location.reload();
   }
+  private SaveRol(){
+    localStorage.setItem('Rol', this.rol);
+  } */
 }
