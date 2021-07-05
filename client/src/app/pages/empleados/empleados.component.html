@@ -55,7 +55,7 @@
     <td mat-cell *matCellDef="let element">
       <div class="table-button-row">
         <button mat-flat-button color = "accent" (click)="onOpenModal(element)" class="btn-new">Editar</button>
-        <button mat-flat-button color = "warn">Eliminar</button>
+        <button mat-flat-button color = "warn" (click)="onDelete(element.Cod_Emp)">Eliminar</button>
       </div>
     </td>
   </ng-container>

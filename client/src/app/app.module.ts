@@ -29,7 +29,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     SidebarModule,
     HttpClientModule
     ,MatTableModule,
-    ReactiveFormsModule
+    ReactiveFormsModule 
   ],
   providers: [
     {provide:HTTP_INTERCEPTORS,useClass:AdminInterceptor, multi:true}

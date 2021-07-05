@@ -24,7 +24,7 @@ export class EmpleadoService {
     .pipe(catchError(this.handlerError));
   }
   update(CodEmp:number, Emp:Emp ):Observable<Emp>{
-    return this.http.patch<Emp>(`/api/Empleados/${CodEmp}`,Emp)
+    return this.http.put<Emp>(`/api/Empleados/${CodEmp}`,Emp)
     .pipe(catchError(this.handlerError));
   }
   delete(CodEmp : number):Observable<{}>{
